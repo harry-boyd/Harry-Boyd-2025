@@ -137,12 +137,20 @@ const palettes = [
   },
 ]
 
-const setPalette = i => {
-  if (!i && i !== 0) { i = Math.floor(Math.random() * palettes.length) }
-  rootTag.style.setProperty('--fg', palettes[i].fg)
-  rootTag.style.setProperty('--highlight', palettes[i].highlight)
+let x = 0
+const setPalette = () => {
+  if (x >= palettes.length) { x = 0 }
+  rootTag.style.setProperty('--fg', palettes[x].fg)
+  rootTag.style.setProperty('--highlight', palettes[x].highlight)
+  console.log(x)
 }
-setPalette()
+// setPalette(Math.floor(Math.random() * palettes.length))
+setPalette(0)
+
+// bodyTag.addEventListener('click', () => {
+//   x += 1
+//   setPalette()
+// })
 
 // ——————————————————————————————————————————————————————————— LOAD TRANSITION
 
@@ -247,8 +255,8 @@ window.addEventListener('resize', setDash)
 const headerCont = document.querySelector('body .intro')
 let headerAll
 
-const introWide = `<h1>Harry Boyd is a freelance designer specialising</h1><h1>in flexible brand systems and digital experiences</h1><h1>for clients around the world</h1>`
-const introNarrow = `<h1>Harry Boyd is a freelance designer</h1><h1>specialising in flexible brand systems</h1><h1>and digital experiences for clients</h1><h1>around the world</h1>`
+const introWide = `<h1>Harry Boyd is a designer specialising in</h1><h1>flexible brand systems and digital experiences</h1><h1>for clients around the world</h1>`
+const introNarrow = `<h1>Harry Boyd is a designer specialising</h1><h1>in flexible brand systems and</h1><h1>digital experiences for clients</h1><h1>around the world</h1>`
 
 const transOriginal = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s, color 0.5s' // Keep these three transition times up to date
 const resetBezier = 'cubic-bezier(.75,.02,.56,1.27)'

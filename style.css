@@ -25,6 +25,9 @@
 	--highlight: red;
 	--highlightSelection: var(--highlight);
 
+  --beefOrange: #FC5517;
+  --beefBrown: #311D11;
+
   --padding: 16px;
   --padding3Q: calc(var(--padding) * 0.75);
   --padding5Q: calc(var(--padding) * 1.25);
@@ -291,6 +294,20 @@ a {
   .work .list a:hover svg {
     transform: scale(1.5);
     z-index: 3;
+  }
+}
+
+a.beef {
+  color: var(--highlight);
+  -webkit-text-stroke: 4px var(--fg);
+  paint-order: stroke fill;
+}
+
+@media (hover: hover) {
+  a.beef:hover {
+    color: var(--beefOrange);
+    -webkit-text-stroke: 4px var(--beefBrown);
+    paint-order: stroke fill;
   }
 }
 

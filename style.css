@@ -124,7 +124,7 @@
   }
 }
 
-@media (max-width: 600px) { :root { --fontScale: 2.75px; } }
+@media (max-width: 600px) { :root { --fontScale: 2.9px; } }
 
 @media (max-width: 500px) {
   :root {
@@ -483,7 +483,7 @@ body.notLoaded .loader {
 .current {
   flex-flow: column;
   align-items: center;
-  gap: var(--gapSmall);
+  gap: var(--gapPlusHalf);
 }
 
 .current > div {

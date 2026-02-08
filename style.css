@@ -223,7 +223,7 @@ p {
   color: var(--fg);
   font-family: 'Aether';
   font-feature-settings: 'swsh' on;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.04em;
 }
 
 /* ———————————————————————————————————————————————————————————————————————————————————————————————————— */

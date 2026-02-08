@@ -202,25 +202,40 @@ document.querySelector('#pin').innerHTML = svg.pin
 
 // ——————————————————————————————————————————————————————————— EMOJIS
 
+// let interval = 300
+let interval = 1500
+
 const earthPhases = [
   '🌎',
   '🌍',
   '🌏'
 ]
 
-const emojiSpin = earth => {
+const devilPhases = [
+  '😈',
+  '👼'
+]
+
+const beefPhases = [
+  '🥩',
+  '🐄'
+]
+
+let phases = devilPhases
+
+const emojiSpin = emoji => {
   let i = 0
   setInterval(() => {
-    earth.innerHTML = earthPhases[i]
+    emoji.innerHTML = phases[i]
     i += 1
-    if (i >= earthPhases.length) { i = 0 }
-  }, 300)
+    if (i >= phases.length) { i = 0 }
+  }, interval)
 }
 
 const insertEmojis = () => {
-  document.querySelector('.intro h1:last-of-type').insertAdjacentHTML('beforeend', `<span> </span><span class='emoji'>🌎</span>`)
-  let earth = document.querySelector('.emoji')
-  emojiSpin(earth)
+  document.querySelector('.intro h1:last-of-type').insertAdjacentHTML('beforeend', `<span> </span><span class='emoji'>${phases[0]}</span>`)
+  let emoji = document.querySelector('.emoji')
+  emojiSpin(emoji)
 }
 
 // ——————————————————————————————————————————————————————————— LINE
@@ -255,8 +270,8 @@ window.addEventListener('resize', setDash)
 const headerCont = document.querySelector('body .intro')
 let headerAll
 
-const introWide = `<h1>Harry Boyd is a designer specialising in</h1><h1>flexible brand systems and digital experiences</h1><h1>for clients around the world</h1>`
-const introNarrow = `<h1>Harry Boyd is a designer specialising</h1><h1>in flexible brand systems and</h1><h1>digital experiences for clients</h1><h1>around the world</h1>`
+const introWide = `<h1>HARRY BOYD creates flexible brand</h1><h1>systems and digital experiences that</h1><h1>know when to misbehave.</h1>`
+const introNarrow = `<h1>HARRY BOYD creates</h1><h1>flexible brand systems and</h1><h1>digital experiences that know</h1><h1>when to misbehave.</h1>`
 
 const transOriginal = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s, color 0.5s' // Keep these three transition times up to date
 const resetBezier = 'cubic-bezier(.75,.02,.56,1.27)'
@@ -436,3 +451,18 @@ const crabify = () => {
 const deCrab = () => {
   headerSpans.forEach(span => { span.classList.remove('crab') })
 }
+
+// ——————————————————————————————————————————————————————————— BEEFIFY
+
+const beef = document.querySelector('.beef')
+
+beef.addEventListener('mouseover', () => {
+  rootTag.style.setProperty('--fg', '#311D11')
+  rootTag.style.setProperty('--highlight', '#FC5517')
+  phases = beefPhases
+})
+beef.addEventListener('mouseout', () => {
+  rootTag.style.setProperty('--fg', palettes[x].fg)
+  rootTag.style.setProperty('--highlight', palettes[x].highlight)
+  phases = devilPhases
+})
